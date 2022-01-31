@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Add User Page</title>
+  </head>
+  <body>
+    <form class="form" id="form" action="result.html" >
+        <input type="text" placeholder="Username"  id="username" />
+        <input type="email" placeholder="Email Id" id="email">
+        <input type="password" placeholder="password" id="password" />
+        <label for="userstatus">User Status</label>
+        <select name="userstatus" id="userstatus">
+            <option>Active</option>
+            <option>Locked</option>
+        </select> 
+        <label for="userrole">User Role</label>
+        <select name="userrole" id="userrole">
+            <option>Super user</option>
+            <option>Admin</option>
+            <option>User</option>
+        </select> 
+        <button>submit</button>       
+  </body>
+</html>

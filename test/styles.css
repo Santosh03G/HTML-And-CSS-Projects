@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rebeccapurple;
+  background-size: cover;
+}
+
+.form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 15px;
+  min-height: 250px;
+}
+
+input {
+  display: block;
+  outline: none;
+  padding: 15px 10px;
+  margin: 30px;
+  border: solid 1px transparent;
+  background: none;
+  color: white;
+  width: 200px;
+  transition: border-color 1s;
+}
+
+.form button {
+  padding: 10px;
+  color: white;
+  background: royalblue;
+  border: none;
+  width: 200px;
+  margin-left: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: rgb(114, 149, 255);
+}
+
+.form label {
+  display: ruby-base;
+  outline: none;
+  padding: 10px 5px;
+  margin: 15px;
+  border: solid 1px transparent;
+  background: none;
+  color: white;
+  width: 200px;
+  transition: border-color 1s;
+}
+
+table {
+  width: 300px;
+}
+
+th {
+  text-align: left;
+}
+
+table,
+th,
+td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+}
