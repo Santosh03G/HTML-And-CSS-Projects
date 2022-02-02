@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Add User</title>
+    <link href="app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Create User</h2>
+      </div>
+      <form class="form" action="/">
+        <div class="form-control">
+          <lable for="username" name="username">User Name</lable>
+          <input id="txt-adduser-UserName" type="text" name="username" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <lable for="email" name="email">Email</lable>
+          <input id="email-adduser-mail" type="email" name="email" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <lable for="pwd" name="pwd">Password</lable>
+          <input id="pass-adduser-password" type="password" name="pwd" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <lable for="conpwd" name="conpwd">Confirm Password</lable>
+          <input id="conpass-adduser-password" type="password" name="conpwd" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+            <label for="userstatus">User Status</label>
+            <select name="userstatus" id="ddl-AddUser-userstatus">
+              <option>--Select--</option>
+              <option>Active</option>
+              <option>Locked</option>
+            </select>    
+        </div>
+        <div class="form-control">
+            <div class="input">
+                <label for="userrole">User Role</label>
+                <select name="userrole" id="ddl-AddUser-userrole">
+                  <option>--Select--</option>
+                  <option>Super user</option>
+                  <option>Admin</option>
+                  <option>User</option>
+                </select>    
+        </div>
+        <div class="form-control">
+          <button>Register</button>
+        </div>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
