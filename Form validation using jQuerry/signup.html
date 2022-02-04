@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>User Management</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add User</h1>
+      <form id="adduser-form">
+        <div>
+          <input type="text" id="txt-adduser-username" name="" required="" />
+          <span class="error_form" id="fname_error_message"></span>
+          <label> User name </label>
+        </div>
+        <div>
+          <input type="email" id="email-adduser-emailid" name="" required="" />
+          <span class="error_form" id="email_error_message"></span>
+          <label>Email id</label>
+        </div>
+        <div>
+          <input
+            type="password"
+            id="pass-adduser-password"
+            name=""
+            required=""
+          />
+          <span class="error_form" id="password_error_message"></span>
+          <label>Password</label>
+        </div>
+        <div class="userstatus">
+          <label for="userstatus">User Status</label>
+          <select name="userstatus" id="ddl-AddUser-userstatus">
+            <option>--Select--</option>
+            <option>Active</option>
+            <option>Locked</option>
+          </select>
+        </div>
+        <div class="userrole">
+          <label for="userrole">User Role</label>
+          <select name="userrole" id="ddl-AddUser-userrole">
+            <option>--Select--</option>
+            <option>Super user</option>
+            <option>Admin</option>
+            <option>User</option>
+          </select>
+        </div>
+        <input type="submit" value="Submit" name="" />
+      </form>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+        $("#fname_error_message").hide();
+        $("#email_error_message").hide();
+        $("#password_error_message").hide();
+
+        var error_username = false;
+        var error_email = false;
+        var error_password = false;
+
+        $("#txt-adduser-username").focusout(function () {
+          check_fname();
+        });
+        $("#email-adduser-emailid").focusout(function () {
+          check_email();
+        });
+        $("#pass-adduser-password").focusout(function () {
+          check_password();
+        });
+
+        function check_fname() {
+          var pattern = /^[a-zA-Z]*$/;
+          var fname = $("#txt-adduser-username").val();
+          if (pattern.test(fname) && fname !== "") {
+            $("#fname_error_message").hide();
+            $("#txt-adduser-username").css(
+              "border-bottom",
+              "2px solid #34F458"
+            );
+          } else {
+            $("#fname_error_message").html("Should contain only Characters");
+            $("#fname_error_message").show();
+            $("#txt-adduser-username").css(
+              "border-bottom",
+              "2px solid #F90A0A"
+            );
+            error_username = true;
+          }
+        }
+
+        function check_password() {
+          var password_length = $("#pass-adduser-password").val().length;
+          if (password_length < 8) {
+            $("#password_error_message").html("Atleast 8 Characters");
+            $("#password_error_message").show();
+            $("#pass-adduser-password").css(
+              "border-bottom",
+              "2px solid #F90A0A"
+            );
+            error_password = true;
+          } else {
+            $("#password_error_message").hide();
+            $("#pass-adduser-password").css(
+              "border-bottom",
+              "2px solid #34F458"
+            );
+          }
+        }
+
+        function check_email() {
+          var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+          var email = $("#email-adduser-emailid").val();
+          if (pattern.test(email) && email !== "") {
+            $("#email_error_message").hide();
+            $("#email-adduser-emailid").css(
+              "border-bottom",
+              "2px solid #34F458"
+            );
+          } else {
+            $("#email_error_message").html("Invalid Email");
+            $("#email_error_message").show();
+            $("#email-adduser-emailid").css(
+              "border-bottom",
+              "2px solid #F90A0A"
+            );
+            error_email = true;
+          }
+        }
+
+        $("#adduser-form").submit(function () {
+          error_username = false;
+          error_email = false;
+          error_password = false;
+          error_retype_password = false;
+
+          check_fname();
+          check_email();
+          check_password();
+
+          if (
+            error_username === false &&
+            error_email === false &&
+            error_password === false
+          ) {
+            alert("Registration Successfull");
+            window.open("result.html");
+            return true;
+          } else {
+            alert("Please Fill the form Correctly");
+            return false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

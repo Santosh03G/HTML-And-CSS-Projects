@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sign In</h1>
+      <form id="signin-form">
+        <div>
+          <input type="text" id="txt-signin-username" name="" required="" />
+          <span class="error_form" id="fname_error_message"></span>
+          <label> User name </label>
+        </div>
+        <div>
+          <input
+            type="password"
+            id="pass-signin-password"
+            name=""
+            required=""
+          />
+          <span class="error_form" id="password_error_message"></span>
+          <label>Password</label>
+        </div>
+        <input type="submit" value="Sign In" name="" />
+      </form>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+        $("#fname_error_message").hide();
+        $("#password_error_message").hide();
+
+        var error_username = false;
+        var error_password = false;
+
+        $("#txt-signin-username").focusout(function () {
+          check_fname();
+        });
+        $("#pass-signin-password").focusout(function () {
+          check_password();
+        });
+
+        function check_fname() {
+          var pattern = /^[a-zA-Z]*$/;
+          var fname = $("#txt-signin-username").val();
+          if (pattern.test(fname) && fname !== "") {
+            $("#fname_error_message").hide();
+            $("#txt-signin-username").css("border-bottom", "2px solid #34F458");
+          } else {
+            $("#fname_error_message").html("Should contain only Characters");
+            $("#fname_error_message").show();
+            $("#txt-signin-username").css("border-bottom", "2px solid #F90A0A");
+            error_username = true;
+          }
+        }
+
+        function check_password() {
+          var password_length = $("#pass-signin-password").val().length;
+          if (password_length < 8) {
+            $("#password_error_message").html("Atleast 8 Characters");
+            $("#password_error_message").show();
+            $("#pass-signin-password").css(
+              "border-bottom",
+              "2px solid #F90A0A"
+            );
+            error_password = true;
+          } else {
+            $("#password_error_message").hide();
+            $("#pass-signin-password").css(
+              "border-bottom",
+              "2px solid #34F458"
+            );
+          }
+        }
+
+        $("#signin-form").submit(function () {
+          error_username = false;
+          error_email = false;
+          error_password = false;
+          error_retype_password = false;
+
+          check_fname();
+
+          check_password();
+
+          if (error_username === false && error_password === false) {
+            alert("Sign in Successfull");
+            window.open("signup.html");
+            return true;
+          } else {
+            alert("Please Fill the form Correctly");
+            return false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
